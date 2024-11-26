@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spendify - Income Expense Calculator</title>
+    <link rel="shortcut icon" href="./public/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-Inter">
+    <div
+      class="w-screen h-screen bg-slate-900 flex flex-col items-center p-4 space-y-8"
+    >
+      <header class="text-white flex flex-col space-y-6 md:">
+        <h1 class="text-3xl md:text-5xl font-bold text-center">
+          Income Expense Calculator
+        </h1>
+        <div class="flex justify-between">
+          <div class="flex flex-col items-center justify-center">
+            Total Income<span id="total-income">0</span>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+            Total Expense<span id="total-expense">0</span>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+            Net Balance<span id="net-balance">0</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="flex justify-between space-x-8 text-white">
+        <label class="">
+          <input type="radio" name="filter" value="all" checked /> All
+        </label>
+        <label class="">
+          <input type="radio" name="filter" value="income" checked /> Income
+        </label>
+        <label class="">
+          <input type="radio" name="filter" value="expense" checked /> Expense
+        </label>
+      </section>
+
+      <section class="flex flex-col w-full md:w-[60%] lg:w-[40%] space-y-2">
+        <input
+          type="text"
+          id="description"
+          class="p-2 rounded-lg outline-none"
+          placeholder="Description"
+          required
+        />
+        <div class="flex">
+          <input
+            type="number"
+            id="amount"
+            class="p-2 rounded-l-lg outline-none w-3/4"
+            placeholder="Amount"
+            required
+          />
+          <label for="type" class="hidden">-</label>
+          <select
+            name="income-expense"
+            id="type"
+            class="w-1/4 rounded-r-lg bg-slate-200 outline-none text-center"
+          >
+            <option value="" disabled selected>Select Type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+        <button
+          id="add-entry"
+          class="p-2 rounded-lg bg-white hover:bg-green-100 font-semibold"
+          type="button"
+        >
+          Add Entry
+        </button>
+        <button
+          id="reset-fields"
+          class="p-2 rounded-lg bg-white hover:bg-red-200 font-semibold"
+          type="button"
+        >
+          Reset
+        </button>
+      </section>
+
+      <section class="flex flex-col justify-start text-white overflow-scroll">
+        <h2 class="font-semibold text-2xl md:text-3xl text-left">Entries</h2>
+        <ul id="entry-list" class=""></ul>
+      </section>
+    </div>
+    <script src="./src/script.js"></script>
+  </body>
+</html>
