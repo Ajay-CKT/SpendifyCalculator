@@ -44,12 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "items-center",
         "p-3",
         "rounded",
-        "mb-2",
+        "mb-2"
       );
       li.innerHTML = `
         <span>${entry.description} - &#x20B9;
 ${entry.amount.toFixed(2)} (${entry.type})</span>
-        <div>
+        <div class="flex gap-4">
           <button class="edit-btn bg-blue-500 text-white px-2 py-1 rounded" onclick="editEntry(${index})">Edit</button>
           <button class="delete-btn bg-red-500 text-white px-2 py-1 rounded" onclick="deleteEntry(${index})">Delete</button>
         </div>
